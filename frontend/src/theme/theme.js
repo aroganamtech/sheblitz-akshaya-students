@@ -63,22 +63,21 @@ export const theme = createTheme({
     h2: { fontFamily: '"Playfair Display", serif', fontWeight: 700, letterSpacing: '-0.02em' },
     h3: { fontFamily: '"Playfair Display", serif', fontWeight: 600, letterSpacing: '-0.01em' },
     h4: { fontFamily: '"Playfair Display", serif', fontWeight: 600 },
-    h5: { fontFamily: '"DM Sans", sans-serif',    fontWeight: 600 },
-    h6: { fontFamily: '"DM Sans", sans-serif',    fontWeight: 600 },
+    h5: { fontFamily: '"DM Sans", sans-serif', fontWeight: 600 },
+    h6: { fontFamily: '"DM Sans", sans-serif', fontWeight: 600 },
     body1: { fontFamily: '"DM Sans", sans-serif', lineHeight: 1.7 },
     body2: { fontFamily: '"DM Sans", sans-serif', lineHeight: 1.6 },
     button: { fontFamily: '"DM Sans", sans-serif', fontWeight: 600, letterSpacing: '0.04em' },
     overline: { fontFamily: '"DM Sans", sans-serif', letterSpacing: '0.12em', fontWeight: 700 },
   },
 
-  shape: { borderRadius: 16 },
+  shape: {
+    borderRadius: 16,
+  },
 
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        '@import': [
-          "url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap')",
-        ],
         body: {
           background: '#0D0818',
           backgroundImage: `
@@ -88,8 +87,12 @@ export const theme = createTheme({
           backgroundAttachment: 'fixed',
           minHeight: '100vh',
         },
-        '*::-webkit-scrollbar': { width: '6px' },
-        '*::-webkit-scrollbar-track': { background: 'transparent' },
+        '*::-webkit-scrollbar': {
+          width: '6px',
+        },
+        '*::-webkit-scrollbar-track': {
+          background: 'transparent',
+        },
         '*::-webkit-scrollbar-thumb': {
           background: alpha(VIOLET[400], 0.4),
           borderRadius: '3px',
@@ -103,14 +106,14 @@ export const theme = createTheme({
 
     MuiButton: {
       styleOverrides: {
-        root: ({ theme: t }) => ({
+        root: {
           borderRadius: 50,
           textTransform: 'none',
           fontWeight: 600,
           padding: '10px 28px',
           transition: 'all 0.25s ease',
-        }),
-        contained: ({ theme: t }) => ({
+        },
+        contained: {
           background: `linear-gradient(135deg, ${PINK[400]} 0%, ${VIOLET[500]} 100%)`,
           boxShadow: `0 4px 24px ${alpha(PINK[500], 0.35)}`,
           '&:hover': {
@@ -118,7 +121,7 @@ export const theme = createTheme({
             boxShadow: `0 6px 32px ${alpha(PINK[400], 0.5)}`,
             transform: 'translateY(-1px)',
           },
-        }),
+        },
         outlined: {
           borderColor: alpha(PINK[400], 0.5),
           color: PINK[200],
@@ -189,7 +192,10 @@ export const theme = createTheme({
           fontWeight: 500,
           fontSize: '0.95rem',
           color: alpha('#F5EEF8', 0.5),
-          '&.Mui-selected': { color: PINK[300], fontWeight: 600 },
+          '&.Mui-selected': {
+            color: PINK[300],
+            fontWeight: 600,
+          },
         },
       },
     },
@@ -206,7 +212,9 @@ export const theme = createTheme({
 
     MuiDivider: {
       styleOverrides: {
-        root: { borderColor: alpha(VIOLET[400], 0.15) },
+        root: {
+          borderColor: alpha(VIOLET[400], 0.15),
+        },
       },
     },
   },

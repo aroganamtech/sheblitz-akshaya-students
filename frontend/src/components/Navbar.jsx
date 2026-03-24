@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import { PINK, VIOLET } from '../theme/theme';
 
-const navLinks = ['Explore', 'Mentors', 'Community', 'Stories', 'Resources'];
+const navLinks = ['Explore', 'Mentors', 'Community', 'Stories', 'Resources','SexEd','Health'];
 
 export default function Navbar({ currentPage, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);

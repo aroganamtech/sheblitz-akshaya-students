@@ -7,6 +7,8 @@ import FeaturesSection from './components/FeaturesSection';
 import CareerQuiz from './components/CareerQuiz';
 import CareerResults from './components/CareerResults';
 import RoadmapPage from './components/RoadmapPage';
+import SexEdModules from './pages/SexEdModules';
+import Healths from './pages/Healths';
 
 const PageWrapper = ({ children }) => (
   <Box sx={{ pt: { xs: 8, md: 10 }, minHeight: '100vh' }}>
@@ -27,17 +29,21 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
+      {/*
+        Navbar receives currentPage + onNavigate.
+        Add a "Sex Ed" nav item in your Navbar component that calls onNavigate('sexed').
+      */}
       <Navbar currentPage={page} onNavigate={navigate} />
 
+      {/* ── HOME ─────────────────────────────────────────────────── */}
       {page === 'home' && (
         <PageWrapper>
           <HeroSection onExplore={() => navigate('quiz')} />
           <FeaturesSection />
-          {/* CTA banner */}
-          <Box sx={{
-            py: { xs: 8, md: 12 }, textAlign: 'center',
-            px: 3,
-          }}>
+
+          {/* CTA Banner */}
+          <Box sx={{ py: { xs: 8, md: 12 }, textAlign: 'center', px: 3 }}>
             <Box sx={{
               maxWidth: 700, mx: 'auto', p: { xs: 4, md: 6 },
               borderRadius: 5,
@@ -47,8 +53,10 @@ export default function App() {
               <Box sx={{
                 fontSize: '2.5rem', mb: 2,
                 background: `linear-gradient(135deg, ${PINK[300]}, ${VIOLET[300]})`,
-                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                fontFamily: '"Playfair Display", serif', fontWeight: 700,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontFamily: '"Playfair Display", serif',
+                fontWeight: 700,
               }}>
                 Ready to find your path?
               </Box>
@@ -63,8 +71,7 @@ export default function App() {
                   background: `linear-gradient(135deg, ${PINK[400]}, ${VIOLET[500]})`,
                   color: '#fff', border: 'none', borderRadius: 50,
                   fontFamily: '"DM Sans", sans-serif',
-                  fontSize: '1rem', fontWeight: 600,
-                  cursor: 'pointer',
+                  fontSize: '1rem', fontWeight: 600, cursor: 'pointer',
                   boxShadow: `0 8px 32px ${alpha(PINK[500], 0.4)}`,
                   transition: 'all 0.25s',
                   '&:hover': {
@@ -80,6 +87,7 @@ export default function App() {
         </PageWrapper>
       )}
 
+      {/* ── QUIZ ─────────────────────────────────────────────────── */}
       {page === 'quiz' && (
         <PageWrapper>
           <Container maxWidth="md" sx={{ py: 6 }}>
@@ -93,6 +101,7 @@ export default function App() {
         </PageWrapper>
       )}
 
+      {/* ── RESULTS ──────────────────────────────────────────────── */}
       {page === 'results' && (
         <PageWrapper>
           <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -108,6 +117,7 @@ export default function App() {
         </PageWrapper>
       )}
 
+      {/* ── ROADMAP ──────────────────────────────────────────────── */}
       {page === 'roadmap' && (
         <PageWrapper>
           <Container maxWidth="md" sx={{ py: 6 }}>
@@ -118,6 +128,20 @@ export default function App() {
           </Container>
         </PageWrapper>
       )}
+
+      
+      {page === 'sexed' && (
+        <PageWrapper>
+          <SexEdModules />
+        </PageWrapper>
+      )}
+      
+      {page === 'sexed' && (
+        <PageWrapper>
+          <Healths />
+        </PageWrapper>
+      )}
+
     </ThemeProvider>
   );
 }
